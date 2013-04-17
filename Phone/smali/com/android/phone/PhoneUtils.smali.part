@@ -1,0 +1,53 @@
+
+.method public static audioRecStop()V
+    .locals 4
+
+    .prologue
+    .line 1978
+    :try_start_0
+    invoke-static {}, Lcom/android/phone/PhoneApp;->getInstance()Lcom/android/phone/PhoneApp;
+
+    move-result-object v1
+
+    iget-object v1, v1, Lcom/android/phone/PhoneApp;->mCM:Lcom/android/internal/telephony/CallManager;
+
+    invoke-virtual {v1}, Lcom/android/internal/telephony/CallManager;->audioRecStop()V
+    :try_end_0
+    .catch Lcom/android/internal/telephony/CallStateException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 1982
+    .local v0, ex:Lcom/android/internal/telephony/CallStateException;
+    :goto_0
+    return-void
+
+    .line 1979
+    .end local v0           #ex:Lcom/android/internal/telephony/CallStateException;
+    :catch_0
+    move-exception v0
+
+    .line 1980
+    .restart local v0       #ex:Lcom/android/internal/telephony/CallStateException;
+    const-string v1, "PhoneUtils"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "answerCall: caught "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+.end method

@@ -1,0 +1,24 @@
+commit 494cbd0d77c892b8d9fd42a636fd5a01c0917aff
+Author: mochangming <mochangming@xiaomi.com>
+Date:   Tue Aug 21 13:32:15 2012 +0800
+
+    modifie network type list
+
+diff --git a/res/xml/network_type_miui.xml b/res/xml/network_type_miui.xml
+index e5975fb..79eb318 100644
+--- a/Phone/res/xml/network_type_miui.xml
++++ b/Phone/res/xml/network_type_miui.xml
+@@ -9,8 +9,9 @@
+         <miui.preference.RadioButtonPreference android:title="@string/preferred_network_type_pref_entries_auto_miui" android:key="4" />
+     </miui.preference.RadioButtonPreferenceCategory>
+     <miui.preference.RadioButtonPreferenceCategory android:title="@string/preferred_network_type_gsm_umts_miui" android:key="network_type_list_gsm_umts">
+-        <miui.preference.RadioButtonPreference android:title="@string/preferred_network_type_pref_entries_3g_preferred_miui" android:key="0" />
+-        <miui.preference.RadioButtonPreference android:title="@string/preferred_network_type_pref_entries_only_2g_miui" android:key="1" />
+-        <miui.preference.RadioButtonPreference android:title="@string/preferred_network_type_pref_entries_only_3g_miui" android:key="2" />
++        <miui.preference.RadioButtonPreference android:title="@string/preferred_network_type_pref_entries_td_preferred_miui" android:key="0" />
++        <miui.preference.RadioButtonPreference android:title="@string/preferred_network_type_pref_entries_gsm_only_miui" android:key="1" />
++        <miui.preference.RadioButtonPreference android:title="@string/preferred_network_type_pref_entries_td_only_miui" android:key="2" />
++        <miui.preference.RadioButtonPreference android:title="@string/preferred_network_type_pref_entries_gsm_preferred_miui" android:key="3" />
+     </miui.preference.RadioButtonPreferenceCategory>
+ </PreferenceScreen>
+

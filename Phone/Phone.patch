@@ -1,0 +1,41 @@
+From 9e2556fcb30777bc74a81f39aa748ca53891fbbf Mon Sep 17 00:00:00 2001
+From: mochangming <mochangming@xiaomi.com>
+Date: Fri, 17 Aug 2012 14:26:23 +0800
+Subject: [PATCH] fix call recorder
+
+---
+ .../smali/com/android/phone/MiuiInCallScreen.smali |   94 +++++++++++---------
+ 1 files changed, 50 insertions(+), 44 deletions(-)
+
+--- a/Phone/smali/com/android/phone/MiuiInCallScreen.smali
++++ b/Phone/smali/com/android/phone/MiuiInCallScreen.smali
+@@ -608,7 +608,7 @@
+ 
+     iget-object v9, p0, Lcom/android/phone/MiuiInCallScreen;->mCallRecorder:Landroid/media/MediaRecorder;
+ 
+-    const/4 v10, 0x4
++    const/16 v10, 0x8
+ 
+     invoke-virtual {v9, v10}, Landroid/media/MediaRecorder;->setAudioSource(I)V
+ 
+@@ -717,6 +717,8 @@
+     move-exception v2
+ 
+     .local v2, e:Ljava/lang/Exception;
++    invoke-static {}, Lcom/android/phone/PhoneUtils;->audioRecStop()V
++
+     iget-object v9, p0, Lcom/android/phone/MiuiInCallScreen;->mCallRecorder:Landroid/media/MediaRecorder;
+ 
+     invoke-virtual {v9}, Landroid/media/MediaRecorder;->reset()V
+@@ -936,6 +938,8 @@
+ 
+     if-eqz v0, :cond_5
+ 
++    invoke-static {}, Lcom/android/phone/PhoneUtils;->audioRecStop()V
++
+     iget-object v0, p0, Lcom/android/phone/MiuiInCallScreen;->mStorageMonitor:Lcom/android/phone/MiuiStorageMonitor;
+ 
+     invoke-virtual {v0}, Lcom/android/phone/MiuiStorageMonitor;->stopMonitor()V
+-- 
+1.7.1
+

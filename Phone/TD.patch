@@ -1,0 +1,11 @@
+--- a/Phone/smali/com/android/phone/MiuiPreferredNetworkTypeListPreference.smali	2013-02-05 17:37:25.978478455 +0800
++++ b/Phone/smali/com/android/phone/MiuiPreferredNetworkTypeListPreference.smali	2013-02-05 17:37:32.650478458 +0800
+@@ -451,8 +451,6 @@
+ 
+     const-string v2, "2"
+ 
+-    invoke-static {v1, v2}, Lcom/android/phone/MiuiPhoneUtils;->removePreference(Landroid/preference/PreferenceGroup;Ljava/lang/String;)Z
+-
+     :cond_5
+     invoke-direct {p0, v1}, Lcom/android/phone/MiuiPreferredNetworkTypeListPreference;->getAllRadioPreference(Landroid/preference/Preference;)V
+ 

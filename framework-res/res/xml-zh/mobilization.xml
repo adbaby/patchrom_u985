@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mobilization>
+    <mobilization id="China Mobile">中国移动</mobilization>
+    <mobilization id="China Unicom">中国联通</mobilization>
+    <mobilization id="China Telecom">中国电信</mobilization>
+    <mobilization id="CMCC">中国移动</mobilization>
+    <mobilization id="CHINA MOBILE">中国移动</mobilization>
+    <mobilization id="UNICOM">中国联通</mobilization>
+    <mobilization id="CHN-CUGSM">中国联通</mobilization>
+    <mobilization id="China Mobile 3G">中国移动3G</mobilization>
+    <mobilization id="China Unicom 3G">中国联通3G</mobilization>
+    <mobilization id="China Telecom 3G">中国电信3G</mobilization>
+    <mobilization id="CMCC 3G">中国移动3G</mobilization>
+    <mobilization id="CHINA MOBILE 3G">中国移动3G</mobilization>
+    <mobilization id="UNICOM 3G">中国联通3G</mobilization>
+    <mobilization id="CHN-CUGSM 3G">中国联通3G</mobilization>
+</mobilization>

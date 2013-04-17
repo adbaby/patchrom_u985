@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="password_keyboard_key_height_alpha">50.0dip</dimen>
+    <dimen name="password_keyboard_key_height_numeric">45.0dip</dimen>
+    <dimen name="password_keyboard_spacebar_vertical_correction">4.0dip</dimen>
+    <dimen name="password_keyboard_horizontalGap">3.0dip</dimen>
+    <dimen name="password_keyboard_verticalGap">5.0dip</dimen>
+    <dimen name="punch_through_position_x">240.0px</dimen>
+    <dimen name="punch_through_position_y">413.0px</dimen>
+    <dimen name="item_alpha_radius">206.0px</dimen>
+    <dimen name="unlock_alpha_radius">89.0px</dimen>
+    <dimen name="touch_radius">223.0px</dimen>
+    <dimen name="punch_through_position_full_y">485.0px</dimen>
+</resources>

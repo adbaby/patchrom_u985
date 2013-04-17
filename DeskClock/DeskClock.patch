@@ -1,0 +1,92 @@
+From 74c522228d0a35acd35c83a5caedc47a20ff9ede Mon Sep 17 00:00:00 2001
+From: yumingyang <yumingyang@xiaomi.com>
+Date: Wed, 21 Nov 2012 16:53:48 +0800
+Subject: [PATCH] add patch
+
+---
+ DeskClock/AndroidManifest.xml                                |    7 +
+ .../android/deskclock/AlarmInitReceiver$1.smali    |    8 -
+ DeskClock/smali/com/android/deskclock/Alarms.smali           |   41 +-
+ 4 files changed, 978 insertions(+), 25 deletions(-)
+ create mode 100644 DeskClock/smali/com/android/deskclock/AlarmReceiverEx.smali
+
+--- a/DeskClock/AndroidManifest.xml
++++ b/DeskClock/AndroidManifest.xml
+@@ -41,6 +41,13 @@
+                 <action android:name="cancel_snooze" />
+             </intent-filter>
+         </receiver>
++
++        <receiver android:name="AlarmReceiverEx" android:exported="false">
++            <intent-filter>
++                <action android:name="com.android.deskclock.ALARM_SET_NEXT" />
++            </intent-filter>
++        </receiver>
++
+         <activity android:theme="@android:style/Theme.NoDisplay" android:name="HandleSetAlarm" android:permission="com.android.alarm.permission.SET_ALARM" android:excludeFromRecents="true" android:screenOrientation="portrait">
+             <intent-filter>
+                 <action android:name="android.intent.action.SET_ALARM" />
+--- a/DeskClock/smali/com/android/deskclock/AlarmInitReceiver$1.smali
++++ b/DeskClock/smali/com/android/deskclock/AlarmInitReceiver$1.smali
+@@ -82,10 +82,6 @@
+ 
+     invoke-virtual {v0, v11}, Lmiui/net/FirewallManager;->addOneShotFlag(I)V
+ 
+-    sget-boolean v0, Lmiui/os/Build;->IS_XIAOMI:Z
+-
+-    if-eqz v0, :cond_3
+-
+     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+ 
+     move-result-wide v0
+--- a/DeskClock/smali/com/android/deskclock/Alarms.smali
++++ b/DeskClock/smali/com/android/deskclock/Alarms.smali
+@@ -802,6 +802,10 @@
+     .local v1, sender:Landroid/app/PendingIntent;
+     invoke-virtual {v0, v1}, Landroid/app/AlarmManager;->cancel(Landroid/app/PendingIntent;)V
+ 
++    const/4 v2, 0x4
++
++    invoke-virtual {v0, v2}, Landroid/app/AlarmManager;->clearAlarm(I)V
++
+     invoke-static {p0, v4}, Lcom/android/deskclock/Alarms;->setStatusBarIcon(Landroid/content/Context;Z)V
+ 
+     const-string v2, ""
+@@ -1126,7 +1130,9 @@
+     move-result-object v4
+ 
+     .local v4, sender:Landroid/app/PendingIntent;
+-    invoke-virtual {v0, v10, p2, p3, v4}, Landroid/app/AlarmManager;->set(IJLandroid/app/PendingIntent;)V
++    const/4 v8, 0x4
++
++    invoke-virtual {v0, v8, p2, p3, v4}, Landroid/app/AlarmManager;->set(IJLandroid/app/PendingIntent;)V
+ 
+     invoke-static {p0, v11}, Lcom/android/deskclock/Alarms;->setStatusBarIcon(Landroid/content/Context;Z)V
+ 
+@@ -1613,6 +1619,23 @@
+     :cond_0
+     invoke-static {p0}, Lcom/android/deskclock/Alarms;->disableAlert(Landroid/content/Context;)V
+ 
++    const-string v2, "alarm"
++
++    invoke-virtual {p0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
++
++    move-result-object v1
++
++    check-cast v1, Landroid/app/AlarmManager;
++
++    .local v1, am:Landroid/app/AlarmManager;
++    const/4 v2, 0x4
++
++    invoke-virtual {v1, v2}, Landroid/app/AlarmManager;->clearAlarm(I)V
++
++    const-string v2, "keen setNextAlert clearAlarm "
++
++    invoke-static {v2}, Lcom/android/deskclock/Log;->e(Ljava/lang/String;)V
++
+     goto :goto_0
+ .end method
+ 
+-- 
+1.7.5.4
+

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ClingButton">
+        <item name="textStyle">bold</item>
+        <item name="background">@drawable/cling_button_bg</item>
+        <item name="paddingLeft">20.0dip</item>
+        <item name="paddingTop">10.0dip</item>
+        <item name="paddingRight">20.0dip</item>
+        <item name="paddingBottom">10.0dip</item>
+        <item name="layout_width">wrap_content</item>
+        <item name="layout_height">wrap_content</item>
+        <item name="text">@string/cling_dismiss</item>
+    </style>
+</resources>

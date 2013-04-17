@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="preferred_network_type_pref_entries_td_preferred_miui">TD优先</string>
+    <string name="preferred_network_type_pref_entries_gsm_only_miui">仅使用GSM</string>
+    <string name="preferred_network_type_pref_entries_td_only_miui">仅使用TD</string>
+    <string name="preferred_network_type_pref_entries_gsm_preferred_miui">GSM优先</string>
+    <string name="preferred_network_type_gsm_umts_miui">GSM/TD-SCDMA</string>
+</resources>
